@@ -1,0 +1,227 @@
+-- phpMyAdmin SQL Dump
+-- version 2.8.1
+-- http://www.phpmyadmin.net
+-- 
+-- Host: localhost
+-- Generation Time: Jan 31, 2013 at 05:23 AM
+-- Server version: 5.0.22
+-- PHP Version: 5.1.4
+-- 
+-- Database: `deal`
+-- 
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tbl_admin`
+-- 
+
+CREATE TABLE `tbl_admin` (
+  `AdminID` tinyint(10) NOT NULL auto_increment,
+  `UserName` varchar(25) default NULL,
+  `Password` varchar(25) default NULL,
+  PRIMARY KEY  (`AdminID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+-- 
+-- Dumping data for table `tbl_admin`
+-- 
+
+INSERT INTO `tbl_admin` VALUES (6, 'kk', 'kk');
+INSERT INTO `tbl_admin` VALUES (7, 'pp', 'pp');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tbl_city`
+-- 
+
+CREATE TABLE `tbl_city` (
+  `CityID` int(10) NOT NULL auto_increment,
+  `CityName` varchar(25) default NULL,
+  PRIMARY KEY  (`CityID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+-- 
+-- Dumping data for table `tbl_city`
+-- 
+
+INSERT INTO `tbl_city` VALUES (1, 'Ahmedabad');
+INSERT INTO `tbl_city` VALUES (2, 'Baroda');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tbl_commonlogin`
+-- 
+
+CREATE TABLE `tbl_commonlogin` (
+  `CommonLoginID` int(10) NOT NULL auto_increment,
+  `UserName` varchar(25) default NULL,
+  `Password` varchar(25) default NULL,
+  `Type` varchar(25) NOT NULL,
+  `Approve` varchar(25) NOT NULL,
+  PRIMARY KEY  (`CommonLoginID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+-- 
+-- Dumping data for table `tbl_commonlogin`
+-- 
+
+INSERT INTO `tbl_commonlogin` VALUES (1, 'trishul', 'trishul', 'dealclient', 'Yes');
+INSERT INTO `tbl_commonlogin` VALUES (2, 'kk', 'kk', 'admin', 'Yes');
+INSERT INTO `tbl_commonlogin` VALUES (3, 'nilay', 'nilay', 'dealclient', 'Yes');
+INSERT INTO `tbl_commonlogin` VALUES (4, 'pp', 'pp', 'admin', 'Yes');
+INSERT INTO `tbl_commonlogin` VALUES (5, 'yatin', 'yatin', 'registeruser', '');
+INSERT INTO `tbl_commonlogin` VALUES (6, 'haresh', 'haresh', 'registeruser', 'Yes');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tbl_contactus`
+-- 
+
+CREATE TABLE `tbl_contactus` (
+  `ContactusID` int(10) NOT NULL auto_increment,
+  `Name` varchar(25) default NULL,
+  `EmailID` varchar(25) default NULL,
+  `MobileNumber` varchar(25) default NULL,
+  `Message` varchar(55) default NULL,
+  PRIMARY KEY  (`ContactusID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+-- 
+-- Dumping data for table `tbl_contactus`
+-- 
+
+INSERT INTO `tbl_contactus` VALUES (1, 'krunal', 'krunal@yahoo.com', '7878787', 'om jai jaigish');
+INSERT INTO `tbl_contactus` VALUES (2, 'dgdg', 'krunal@yahoo.com', '4343', 'fdfdfd');
+INSERT INTO `tbl_contactus` VALUES (3, 'dfdf', 'krunal@yahoo.com', '5454545', 'fdfdfd');
+INSERT INTO `tbl_contactus` VALUES (4, 'fddfdf', 'dfdfd@yahoo.com', '878787', '7878787');
+INSERT INTO `tbl_contactus` VALUES (5, 'uuu', 'krunal@gmail.com', '78787', 'jkjkj');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tbl_deal`
+-- 
+
+CREATE TABLE `tbl_deal` (
+  `DealID` int(10) NOT NULL auto_increment,
+  `DealClientID` varchar(25) default NULL,
+  `DealName` varchar(25) default NULL,
+  `DealDuration` varchar(25) default NULL,
+  `Amount` varchar(25) default NULL,
+  `DealDescription` varchar(55) default NULL,
+  `DealImage` varchar(25) default NULL,
+  `DealTime` varchar(50) default NULL,
+  `UserAllowed` varchar(25) default NULL,
+  `City` varchar(25) default NULL,
+  `Approve` varchar(25) default NULL,
+  `Expired` varchar(25) NOT NULL,
+  `ExpiredDateTime` varchar(50) NOT NULL,
+  PRIMARY KEY  (`DealID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+-- 
+-- Dumping data for table `tbl_deal`
+-- 
+
+INSERT INTO `tbl_deal` VALUES (1, '2', 'hhjh', '66', '100', 'kjjkljl', 'Sunset.jpg', '05/08/12 17:11:28', '3', '1', 'Yes', 'Yes', '05/08/12 17:23:49');
+INSERT INTO `tbl_deal` VALUES (2, '2', 'ddd', '2', '100', 'fdfdf', 'Blue hills.jpg', '05/08/12 17:27:18', '3', '1', 'Yes', 'No', 'None');
+INSERT INTO `tbl_deal` VALUES (3, '2', 'fdfdf', '33', '33', '33', 'Winter.jpg', '05/08/12 17:27:32', '3', '2', 'Yes', 'No', 'None');
+INSERT INTO `tbl_deal` VALUES (4, '2', '22', '22', '22', '22', 'metamorph_cloudyday.jpg', '05/08/12 17:27:50', '22', '2', 'Yes', 'No', 'None');
+INSERT INTO `tbl_deal` VALUES (5, '2', '11', '11', '11', '11', 'pic-05.jpg', '05/08/12 17:33:09', '11', '1', 'Yes', 'No', 'None');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tbl_dealclient`
+-- 
+
+CREATE TABLE `tbl_dealclient` (
+  `DealClientID` int(10) NOT NULL auto_increment,
+  `FirmName` varchar(25) default NULL,
+  `FirmAddress` varchar(25) default NULL,
+  `MobileNumber` int(10) default NULL,
+  `EmailID` varchar(25) default NULL,
+  `UserName` varchar(25) default NULL,
+  `Password` varchar(25) default NULL,
+  `Approve` varchar(25) NOT NULL,
+  PRIMARY KEY  (`DealClientID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+-- 
+-- Dumping data for table `tbl_dealclient`
+-- 
+
+INSERT INTO `tbl_dealclient` VALUES (1, 'Trishul pvt ltd', 'bapunagar', 787878787, 'trishul@yahoo.com', 'trishul', 'trishul', 'Yes');
+INSERT INTO `tbl_dealclient` VALUES (2, 'nilay', 'jkfjdkfj', 878787, 'nilay', 'nilay', 'nilay', 'Yes');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tbl_dealdetails`
+-- 
+
+CREATE TABLE `tbl_dealdetails` (
+  `DealDetailsID` int(10) NOT NULL auto_increment,
+  `RegisterID` varchar(10) default NULL,
+  `DealID` varchar(10) default NULL,
+  `DealDetailsTimeDate` varchar(50) default NULL,
+  PRIMARY KEY  (`DealDetailsID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+-- 
+-- Dumping data for table `tbl_dealdetails`
+-- 
+
+INSERT INTO `tbl_dealdetails` VALUES (1, '2', '1', '05/08/12 17:23:09');
+INSERT INTO `tbl_dealdetails` VALUES (2, '2', '1', '05/08/12 17:23:39');
+INSERT INTO `tbl_dealdetails` VALUES (3, '2', '1', '05/08/12 17:23:43');
+INSERT INTO `tbl_dealdetails` VALUES (4, '2', '2', '01/19/13 08:29:03');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tbl_feedback`
+-- 
+
+CREATE TABLE `tbl_feedback` (
+  `FeedbackID` int(10) NOT NULL auto_increment,
+  `Name` varchar(25) default NULL,
+  `EmailID` varchar(25) default NULL,
+  `MobileNumber` varchar(25) default NULL,
+  `Message` varchar(55) default NULL,
+  PRIMARY KEY  (`FeedbackID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+-- 
+-- Dumping data for table `tbl_feedback`
+-- 
+
+INSERT INTO `tbl_feedback` VALUES (1, 'hello', 'hello@yahoo.com', '7878787', 'hello');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tbl_register`
+-- 
+
+CREATE TABLE `tbl_register` (
+  `RegisterID` int(10) NOT NULL auto_increment,
+  `Name` varchar(25) NOT NULL,
+  `Address` varchar(25) NOT NULL,
+  `MobileNumber` int(10) NOT NULL,
+  `EmailID` varchar(25) NOT NULL,
+  `UserName` varchar(25) NOT NULL,
+  `Password` varchar(25) NOT NULL,
+  PRIMARY KEY  (`RegisterID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+-- 
+-- Dumping data for table `tbl_register`
+-- 
+
+INSERT INTO `tbl_register` VALUES (1, 'yatin', 'yatin', 787878, 'yatin@yahoo.com', 'yatin', 'yatin');
+INSERT INTO `tbl_register` VALUES (2, 'haresh', '87878', 878787, 'haresh@yahoo.com', 'haresh', 'haresh');
